@@ -1,4 +1,4 @@
-package misc;
+package misc.java;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;

@@ -1,14 +1,13 @@
 package net.timeandtraining.product;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
 import net.timeandtraining.framework.TestBase;
 import net.timeandtraining.framework.UI;
 
 public class ProductTests extends TestBase{
+	
+
 	
 	@Test
 	public void review_on_product() {
@@ -53,9 +52,41 @@ public class ProductTests extends TestBase{
 		
 //		Verify 'write a review' button gets appeared after few seconds*/			
 		
+		
+			
+		boolean b=true;
+		int counter=1;
+			while (b) {
+			
+				try {
+					
+					UI.findelementByXpath("//a[contains(text(),'Write a review')]");	
+					System.err.println("element found");
+					reporter.pass("'write a review' button gets appeared after few seconds");
+					b=false;
+	
+				} catch (Exception e2) {
+					
+					UI.refreshPage();
+					System.err.println("Refreshed "+counter+" time");
+					counter+=1;
+					
+				}
+				
+				
+			}
+		
+		
+		/*
+		//EXPLICIT WAIT
 		WebDriverWait wait = new WebDriverWait(driver, 30);
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//a[contains(text(),'Write a review')]")));
-	
+		*/
+		
+		
+		
+		
+		
 		
 	}
 	

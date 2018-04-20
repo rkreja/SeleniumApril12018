@@ -13,11 +13,22 @@ public class UI extends TestBase {
 		driver.get(url);
 		reporter.log(Status.INFO, "Navigated to: " + url);
 	}
+	
+	
+	
 
 	public static void navigate(String url) {
 		driver.navigate().to(url);
 		reporter.log(Status.INFO, "Navigated to: " + url);
 	}
+	
+	
+	public static void refreshPage() {
+		
+		driver.navigate().refresh();
+		reporter.log(Status.INFO, "Page refreshed.");
+	}
+	
 
 	// FINDING ELEMENTS
 	public static WebElement findelementById(String id) {
@@ -92,14 +103,14 @@ public class UI extends TestBase {
 
 	// ALL THE METHODS HERE FOR SELECT DROP DOWN
 
-	public static void DropDown_SelectItemByVisibleTextFrom(WebElement dropDownElement, String item) {
+	public static void DropDown_SelectItemByVisibleText(WebElement dropDownElement, String item) {
 		Select dropdown = new Select(dropDownElement);
 		dropdown.selectByVisibleText(item);
 		reporter.log(Status.INFO, item + " selected in dropdown");
 
 	}
 
-	public static void DropDown_SelectItemByValueFrom(WebElement dropDownElement, String value) {
+	public static void DropDown_SelectItemByValue(WebElement dropDownElement, String value) {
 		Select dropdown = new Select(dropDownElement);
 		dropdown.selectByValue(value);
 		reporter.log(Status.INFO, value + " selected in dropdown");
