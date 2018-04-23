@@ -7,12 +7,11 @@ import net.timeandtraining.framework.UI;
 
 public class LoginTests extends TestBase {
 	
-	@Test(enabled=true)
-	
+	@Test(testName="login with invalid id")	
 	public void TC001_login_with_invalid_id() {
 		
 		// Go to http://www.automationpractice.com
-		UI.openURL("http://www.automationpractice.com");
+		UI.openURL("http://www.automationpractice.com");		
 		// Click Sign in button from top right corner of the page
 		UI.clickByXpath("//a[@class='login' and @title='Log in to your customer account']");
 		// Enter invalid email address 'myunknowxaad@mailinator.com' in email address text field of right side
@@ -25,9 +24,11 @@ public class LoginTests extends TestBase {
 		UI.verifyByXpath("//p[contains(text(), 'There is 1 error')]");
 		// Verify error message displayed 'Password is required.'
 		UI.verifyByXpath("//li[contains(text(), 'Password is required.')]");
+		
+		
 	}
 	
-	@Test(enabled=true)
+	@Test
 	
 	public void TC002_login_with_valid_userid_invalid_password() {
 		// Go to http://www.automationpractice.com
@@ -46,7 +47,7 @@ public class LoginTests extends TestBase {
 		UI.verifyByXpath("//li[contains(text(), 'Authentication failed.')]");
 		
 	}
-	@Test(enabled=true)
+	@Test
 	public void TC003_login_with_valid_userid_password() {
 		// Go to http://www.automationpractice.com
 		UI.openURL("http://www.automationpractice.com");

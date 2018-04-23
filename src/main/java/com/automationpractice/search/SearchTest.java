@@ -15,7 +15,7 @@ public class SearchTest extends TestBase{
 		
 	}
 	
-	@Test(enabled=false)
+	@Test
 	public void TC002_Prdouct_quick_view() {
 		// Go to http://www.automationpractice.com
 		UI.openURL("http://www.automationpractice.com");
@@ -38,7 +38,7 @@ public class SearchTest extends TestBase{
 		
 	}
 
-	@Test(enabled=false)
+	@Test
 	public void TC003_Product_img_view() {
 		// Go to http://automationpractice.com/index.php?id_product=7&controller=product
 		UI.openURL("http://automationpractice.com/index.php?id_product=7&controller=product");
@@ -59,7 +59,7 @@ public class SearchTest extends TestBase{
 		UI.mouseHover(UI.findelementByXpath("//img[@id='thumb_23']"));
 		// close the popup
 	}
-	@Test(enabled=false)
+	@Test
 	public void TC004_Simple_negative_search() {
 		// Go to http://www.automationpractice.com
 		UI.openURL("http://www.automationpractice.com");
@@ -70,10 +70,15 @@ public class SearchTest extends TestBase{
 		Actions actions = new Actions(driver);
 		actions.moveToElement(search_input).sendKeys(Keys.ENTER).build().perform();
 		// Verify text: 'No results were found for your search "invalid"' displayed on the page
-		UI.verifyByXpath("//p[contains(text(), 'No results were')]");
+		UI.verifyByXpath("//p[contains(text(), 'No results weres')]");
 		
 	}
-	@Test(enabled=false)
+	
+	
+
+	
+	
+	@Test
 	public void TC005_view_grid_and_list() {
 		// Go to http://www.automationpractice.com
 		UI.openURL("http://www.automationpractice.com");
@@ -94,7 +99,7 @@ public class SearchTest extends TestBase{
 		UI.clickByXpath("//i[@class='icon-th-list']");
 		// Verify images are displaying as list now
 		}
-	@Test(enabled=false)
+	@Test
 	public void TC006_valid_grid_and_list() {
 		// Go to http://www.automationpractice.com
 		UI.openURL("http://www.automationpractice.com");
@@ -122,7 +127,7 @@ public class SearchTest extends TestBase{
 		UI.DropDown_SelectItemByVisibleText(UI.findelementById("selectProductSort"), "In stock");
 		// Verify 'In Stock' green button appears for all displayed product
 		}
-	@Test(enabled=true)
+	@Test
 	public void TC007_search_auto_suggestion() {
 		// Go to http://www.automationpractice.com
 		UI.openURL("http://www.automationpractice.com");
@@ -134,7 +139,7 @@ public class SearchTest extends TestBase{
 		// Verify 'Summer Dresses > Printed Chifton Dress' option get suggested in search textbox with 'Chif' in bold
 		UI.verifyByXpath("//strong[contains(text(), 'Chif')]");
 	}
-	@Test(enabled=false)
+	@Test
 	public void TC008_search_with_filter() {
 		// Go to http://www.automationpractice.com
 		UI.openURL("http://www.automationpractice.com");

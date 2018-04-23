@@ -1,4 +1,4 @@
-package com.automationpractice.register_new_account;
+package com.automationpractice.registration;
 
 import java.util.Random;
 

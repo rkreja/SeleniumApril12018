@@ -1,6 +1,12 @@
 package net.timeandtraining.framework;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
@@ -32,19 +38,43 @@ public class UI extends TestBase {
 
 	// FINDING ELEMENTS
 	public static WebElement findelementById(String id) {
-		return driver.findElement(By.id(id));
+		WebElement e=null;
+		try {
+			e=driver.findElement(By.id(id));
+		} catch (Exception e2) {
+			reportFailWithScreenShot("Unable to identify element by id: "+ id);
+		}
+		return e;
 	}
 
 	public static WebElement findelementByName(String name) {
-		return driver.findElement(By.name(name));
+		WebElement e=null;
+		try {
+			e=driver.findElement(By.name(name));
+		} catch (Exception e2) {
+			reportFailWithScreenShot("Unable to identify element by name: "+ name);
+		}
+		return e;
 	}
 
 	public static WebElement findelementByXpath(String xpath) {
-		return driver.findElement(By.xpath(xpath));
+		WebElement e=null;
+		try {
+			e=driver.findElement(By.xpath(xpath));
+		} catch (Exception e2) {
+			reportFailWithScreenShot("Unable to identify element by xpath: "+ xpath);
+		}
+		return e;
 	}
 
 	public static WebElement findelementByClassName(String className) {
-		return driver.findElement(By.className(className));
+		WebElement e=null;
+		try {
+			e=driver.findElement(By.className(className));
+		} catch (Exception e2) {
+			reportFailWithScreenShot("Unable to identify element by class: "+ className);
+		}
+		return e;
 	}
 
 	// ALL THE METHODS HERE FOR CLICKS
@@ -133,10 +163,11 @@ public class UI extends TestBase {
 		if (result) {
 			reporter.pass("Element is displayed. Found by xpath: " + xpath);
 		} else {
-			reporter.fail("Element not displayed. Tried to find by xpath: " + xpath);
+			reportFailWithScreenShot("Element not displayed. Tried to find by xpath: " + xpath);
 		}
 
 	}
+
 
 	public static void verifyById(String id) {
 		boolean result = false;
@@ -145,7 +176,7 @@ public class UI extends TestBase {
 		if (result) {
 			reporter.pass("Element is displayed. Found by id: " + id);
 		} else {
-			reporter.fail("Element not displayed. Tried to find by id: " + id);
+			reportFailWithScreenShot("Element not displayed. Tried to find by id: " + id);
 		}
 
 	}
@@ -156,8 +187,27 @@ public class UI extends TestBase {
 		if (result) {
 			reporter.pass("Text [" + text + "] found in element");
 		} else {
-			reporter.fail("Text [" + text + "] not found in element");
+			reportFailWithScreenShot("Text [" + text + "] found in element");
+			
+			
 		}
+	}
+	
+
+	
+	private static void reportFailWithScreenShot(String desc) {
+		
+		reporter.fail(desc);		
+		TakesScreenshot sc =(TakesScreenshot) driver;
+			try {
+				File file=sc.getScreenshotAs(OutputType.FILE);
+				String path=System.getProperty("user.dir") + "\\screenshot\\"+ System.currentTimeMillis()+".png";
+				FileUtils.copyFile(file, new File(path));
+				reporter.addScreenCaptureFromPath(path);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 }

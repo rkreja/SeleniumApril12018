@@ -50,6 +50,7 @@ public class ProductTests extends TestBase{
 //		Click OK
 		UI.clickByXpath("//button[@type='submit' and child::span[text()='OK']]");
 		
+		
 //		Verify 'write a review' button gets appeared after few seconds*/			
 		
 		

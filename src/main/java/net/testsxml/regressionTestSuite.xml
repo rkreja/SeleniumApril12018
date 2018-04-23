@@ -2,7 +2,11 @@
 <suite name="Suite1" verbose="1" >
   <test name="Regression"   >
     <packages>
-      <package name="net.timeandtraining.farzad"/>      
+      <package name="com.automationpractice.login"/>
+     <package name="com.automationpractice.profile"/>
+      <package name="com.automationpractice.registration"/>       
+      <package name="com.automationpractice.search"/>      
+      <package name="com.automationpractice.product"/>      
    </packages>
  </test>
 </suite>
