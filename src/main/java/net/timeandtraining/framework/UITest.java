@@ -13,7 +13,7 @@ public class UITest extends TestBase{
 //		Go to http://www.automationpractice.com
 		UI.openURL("http://www.automationpractice.com");		
 		
-		UI.verifyByXpath("(//*[text()='Dresses'])[2]");
+		UI.verifyByXpath("(//*[text()='Dresses'])[3]");
 
 		
 		

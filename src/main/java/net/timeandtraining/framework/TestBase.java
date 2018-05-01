@@ -32,11 +32,11 @@ public class TestBase {
     private static ThreadLocal parentTest = new ThreadLocal();
     private static ThreadLocal test = new ThreadLocal();
     
-    public static ExtentTest reporter;
+    protected static ExtentTest reporter;
     
     
     
-    private static Properties getConfigProperty() {
+    public static Properties getConfigProperty() {
     	Properties properties = new Properties();
     	try {
 			properties.load(new FileReader(new File("config.properties")));

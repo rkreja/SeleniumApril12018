@@ -1,11 +1,16 @@
 package com.automationpractice.login;
 
+import org.openqa.selenium.By;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import misc.javamethods.Singer;
 import net.timeandtraining.framework.TestBase;
 import net.timeandtraining.framework.UI;
 
 public class LoginTests extends TestBase {
+	
+
 	
 	@Test(testName="login with invalid id")	
 	public void TC001_login_with_invalid_id() {
@@ -19,11 +24,42 @@ public class LoginTests extends TestBase {
 		// Click Sign in button
 		UI.clickByXpath("//button[@id='SubmitLogin']");
 		// Verify error message displayed 'There is 1 error'
-//		WebDriverWait wait = new WebDriverWait(driver, 2);
-//		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//p[contains(text(), 'There is 1 error')]")));
 		UI.verifyByXpath("//p[contains(text(), 'There is 1 error')]");
 		// Verify error message displayed 'Password is required.'
 		UI.verifyByXpath("//li[contains(text(), 'Password is required.')]");
+	
+	}
+	
+	
+	@Test(testName="login with invalid id")	
+	public void TC001_login_with_invalid_id_driver() {
+		
+		// Go to http://www.automationpractice.com
+//		UI.openURL("http://www.automationpractice.com");
+		driver.get("http://www.automationpractice.com");
+		
+		// Click Sign in button from top right corner of the page
+//		UI.clickByXpath("//a[@class='login' and @title='Log in to your customer account']");
+		
+		driver.findElement(By.xpath("//a[@class='login' and @title='Log in to your customer account']")).click();
+			//
+		// Enter invalid email address 'myunknowxaad@mailinator.com' in email address text field of right side
+//		UI.enterTextByXpath("//input[@id='email']", "myunknowxaad@mailinator.com");		
+		driver.findElement(By.xpath("//input[@id='email']")).sendKeys("myunknowxaad@mailinator.com");
+		//
+		// Click Sign in button
+//		UI.clickByXpath("//button[@id='SubmitLogin']");
+		driver.findElement(By.xpath("//button[@id='SubmitLogin']")).click();
+		
+		
+		// Verify error message displayed 'There is 1 error'
+//		UI.verifyByXpath("//p[contains(text(), 'There is 1 error')]");
+		boolean result=driver.findElement(By.xpath("//p[contains(text(), 'There is 1 error')]")).isEnabled();
+		Assert.assertEquals(result, true);
+			
+		
+		// Verify error message displayed 'Password is required.'
+//		UI.verifyByXpath("//li[contains(text(), 'Password is required.')]");
 		
 		
 	}

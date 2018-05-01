@@ -13,7 +13,13 @@ public class SearchTest extends TestBase{
 	
 	public void TC001_Price_Range_Search() {
 		
+		
+		
+		
+		
 	}
+	
+
 	
 	@Test
 	public void TC002_Prdouct_quick_view() {
@@ -37,7 +43,6 @@ public class SearchTest extends TestBase{
 		// close the popup
 		
 	}
-
 	@Test
 	public void TC003_Product_img_view() {
 		// Go to http://automationpractice.com/index.php?id_product=7&controller=product
@@ -57,11 +62,13 @@ public class SearchTest extends TestBase{
 		UI.mouseHover(UI.findelementByXpath("//img[@id='thumb_21']"));
 		UI.mouseHover(UI.findelementByXpath("//img[@id='thumb_22']"));
 		UI.mouseHover(UI.findelementByXpath("//img[@id='thumb_23']"));
+		
+		
 		// close the popup
 	}
 	@Test
 	public void TC004_Simple_negative_search() {
-		// Go to http://www.automationpractice.com
+		// Go to http://ww.w.automationpractice.com
 		UI.openURL("http://www.automationpractice.com");
 		// Enter 'invalid' in search text box on top
 		UI.enterTextById("search_query_top", "invalid");
@@ -73,11 +80,6 @@ public class SearchTest extends TestBase{
 		UI.verifyByXpath("//p[contains(text(), 'No results weres')]");
 		
 	}
-	
-	
-
-	
-	
 	@Test
 	public void TC005_view_grid_and_list() {
 		// Go to http://www.automationpractice.com

@@ -9,13 +9,16 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.Status;
 
 public class UI extends TestBase {
 
-	public static void openURL(String url) {
+	public static void openURL(String url) {					
+		
 		driver.get(url);
 		reporter.log(Status.INFO, "Navigated to: " + url);
 	}
@@ -24,7 +27,7 @@ public class UI extends TestBase {
 	
 
 	public static void navigate(String url) {
-		driver.navigate().to(url);
+		driver.navigate().to(url);		
 		reporter.log(Status.INFO, "Navigated to: " + url);
 	}
 	
@@ -79,6 +82,15 @@ public class UI extends TestBase {
 
 	// ALL THE METHODS HERE FOR CLICKS
 
+	public static void clickByWebElement(WebElement e) {	
+		String elementText="[BLANK]";
+		if(e.getText().length()>1 && (!e.getText().contains("<"))) {
+			elementText=e.getText();
+		}
+		e.click();
+		reporter.log(Status.PASS, "Clicked on elemenet : " + elementText);
+	}
+	
 	public static void clickById(String id) {
 
 		findelementById(id).click();
@@ -101,7 +113,10 @@ public class UI extends TestBase {
 	}
 
 	// ALL THE METHODS HERE FOR SEND CLEAR
+	public static void clearByWebElement(WebElement e) {
+		e.clear();
 
+	}
 	public static void clearById(String id) {
 		findelementById(id).clear();
 	}
@@ -111,6 +126,28 @@ public class UI extends TestBase {
 	}
 
 	// ALL THE METHODS HERE FOR SEND KEYS
+	
+	public static boolean isElementVisible(WebElement e) {
+		boolean result=false;
+		String waitTime=(String) TestBase.getConfigProperty().get("EXPLICIT_WAIT");
+		WebDriverWait driverWait = new WebDriverWait(driver, Long.parseLong(waitTime));
+		
+		try {
+			driverWait.until(ExpectedConditions.visibilityOf(e));
+			result=true;
+		} catch (Exception e2) {
+			UI.reportFailWithScreenShot("Time out. Element: ["+ e + "] not gets visible");
+		}
+		return result;
+	}
+	
+	public static void enterTextByWebElement(WebElement e, String text) {
+		e.clear();
+		e.sendKeys(text);
+		reporter.log(Status.PASS, "Successfully entered text: " + text);
+	}
+	
+	
 	public static void enterTextById(String id, String text) {
 		findelementById(id).sendKeys(text);
 		reporter.log(Status.PASS, "Successfully entered text: " + text);
@@ -208,6 +245,15 @@ public class UI extends TestBase {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	
+	public static <T> void  report(T expectedResult, T actualResult, String desscription) {
+		if(expectedResult.equals(actualResult)) {
+			reporter.pass(desscription);
+		}else {
+			reportFailWithScreenShot(desscription);
+		}
 	}
 
 }
