@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite1" verbose="1" >
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Suite1" verbose="1">
   <test name="Regression"   >
     <packages>
+      <package name="com.automationpractice.profile"/>
+      
       <package name="com.automationpractice.login"/>
-     <package name="com.automationpractice.profile"/>
       <package name="com.automationpractice.registration"/>       
       <package name="com.automationpractice.search"/>      
       <package name="com.automationpractice.product"/>      

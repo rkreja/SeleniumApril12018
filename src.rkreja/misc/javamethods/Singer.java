@@ -1,14 +1,18 @@
 package misc.javamethods;
 
-import com.automationpractice.login.Actor;
-
 public class Singer {
+	
+	
 	
 		
 	
 	public static void abc() {
 		System.out.println("abc");
 	}
+	
+	
+	
+
 	
 	
 	public  void sing(String gaan){
@@ -35,13 +39,7 @@ public class Singer {
 
 		return total;
 	}
-	
-	
-	public Actor getMeAnActor() {
-		Actor actor= new Actor();
-		return actor;
-	}
-	
+
 
 	
 	
