@@ -99,6 +99,7 @@ public class TestBase {
 		String implicit_wait=(String) getConfigProperty().get("IMPLICIT_WAIT");
 		String explicit_wait=(String) getConfigProperty().get("EXPLICIT_WAIT");
 		
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Integer.parseInt(implicit_wait), TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(Integer.parseInt(explicit_wait), TimeUnit.MINUTES);
 		

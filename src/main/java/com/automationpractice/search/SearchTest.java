@@ -1,5 +1,7 @@
 package com.automationpractice.search;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -43,6 +45,66 @@ public class SearchTest extends TestBase{
 		// close the popup
 		
 	}
+	
+	
+	@Test(description="built by reja to show how to use arraylist and for loop")
+	public void TC003_Product_img_view2() {
+//		Go to http://automationpractice.com/index.php?id_product=7&controller=product
+		UI.openURL("http://automationpractice.com/index.php?id_product=7&controller=product");
+//		Verify there are 4 thumbnail on the page
+//		click on the first thumbnail
+//		verify popup displayed to slideshow
+//		close the popup
+//		Click next button and verify image changes, do the same for four images
+		
+				
+		List<WebElement> thubmnails=driver.findElements(By.xpath("//img[contains(@id,'thumb')]"));		
+		
+//		thubmnails.get(0).click();
+//		thubmnails.get(1).click();
+//		thubmnails.get(2).click();
+//		thubmnails.get(3).click();
+		
+//		for(WebElement element:thubmnails) {
+//			element.click();	
+//			
+//			UI.clickByXpath("//a[@title='Close']");
+//		}
+		
+		
+		for (int i = 0; i < thubmnails.size(); i++) {
+			
+			thubmnails.get(i).click();
+			
+			switch (i) {
+			case 0:
+				//verify big image with 20 				
+				UI.report(true, UI.findelementByXpath("//img[contains(@src,'/20')]"), "Verifying image number: "+ i+1);				
+				break;
+			case 1:
+				//verify big image with 20 
+				UI.report(true, UI.findelementByXpath("//img[contains(@src,'/21')]"), "Verifying image number: "+ i+1);
+				break;
+			case 2:
+				//verify big image with 20 
+				UI.report(true, UI.findelementByXpath("//img[contains(@src,'/22')]"), "Verifying image number: "+ i+1);
+				break;
+			case 3:
+				//verify big image with 20 
+				UI.report(true, UI.findelementByXpath("//img[contains(@src,'/23')]"), "Verifying image number: "+ i+1);
+				break;
+
+
+			}
+			
+			UI.clearByXpath("//a[@title='Close']");
+		}
+		
+		
+		
+		
+	}
+	
 	@Test
 	public void TC003_Product_img_view() {
 		// Go to http://automationpractice.com/index.php?id_product=7&controller=product

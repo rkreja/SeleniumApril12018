@@ -12,9 +12,9 @@ import net.timeandtraining.framework.UI;
 
 public class Register_New_Account_Test extends TestBase{
 	
+		
 	
 	@Test
-	
 	public void TC001_Registration() {
 		
 			Random randomGenerator = new Random();  
