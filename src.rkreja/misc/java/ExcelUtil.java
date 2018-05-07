@@ -1,8 +1,5 @@
 package misc.java;
 
-import com.rkreja.EmailClient;
-import com.rkreja.Excel;
-import com.rkreja.Gmail;
 import com.rkreja.Util;
 
 public class ExcelUtil{

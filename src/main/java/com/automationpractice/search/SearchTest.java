@@ -79,25 +79,26 @@ public class SearchTest extends TestBase{
 			switch (i) {
 			case 0:
 				//verify big image with 20 				
-				UI.report(true, UI.findelementByXpath("//img[contains(@src,'/20')]"), "Verifying image number: "+ i+1);				
+				UI.report(true, UI.isElementVisible(UI.findelementByXpath("//img[contains(@src,'/20')]")), "Verifying image number: 20");	
+				
 				break;
 			case 1:
-				//verify big image with 20 
-				UI.report(true, UI.findelementByXpath("//img[contains(@src,'/21')]"), "Verifying image number: "+ i+1);
+				//verify big image with 21 
+				UI.report(true, UI.isElementVisible(UI.findelementByXpath("//img[contains(@src,'/21')]")), "Verifying image number: 21");
 				break;
 			case 2:
-				//verify big image with 20 
-				UI.report(true, UI.findelementByXpath("//img[contains(@src,'/22')]"), "Verifying image number: "+ i+1);
+				//verify big image with 22 
+				UI.report(true, UI.isElementVisible(UI.findelementByXpath("//img[contains(@src,'/22')]")), "Verifying image number: 22");
 				break;
 			case 3:
-				//verify big image with 20 
-				UI.report(true, UI.findelementByXpath("//img[contains(@src,'/23')]"), "Verifying image number: "+ i+1);
+				//verify big image with 23 
+				UI.report(true, UI.isElementVisible(UI.findelementByXpath("//img[contains(@src,'/23')]")), "Verifying image number: 23");
 				break;
 
 
 			}
 			
-			UI.clearByXpath("//a[@title='Close']");
+			UI.clickByXpath("//a[@title='Close']");
 		}
 		
 		

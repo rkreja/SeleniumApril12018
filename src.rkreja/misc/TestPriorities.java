@@ -1,4 +1,4 @@
-package misc;
+/*package misc;
 
 import org.testng.annotations.Test;
 
@@ -7,25 +7,25 @@ import net.timeandtraining.framework.TestBase;
 public class TestPriorities extends TestBase{
 	
 	
-	
-	
-	@Test
+	@Test(priority=1)	
+	public void searchTest() {
+	}
+		
+	@Test(priority=2)
 	public void purchaseTest() {
 		
-	}
-	
-	@Test
-	public void searchTest() {
-		
-	}
-	
-	@Test
+	}		
+	@Test(priority=3)
 	public void registrationTest() {
 		
 	}
-	@Test
+		
+	@Test(priority=3)
 	public void loginTest() {
 		
 	}
+	
+	
 
 }
+*/
