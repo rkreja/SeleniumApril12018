@@ -1,6 +1,7 @@
 package com.automationpractice.login;
 
 import org.openqa.selenium.By;
+import org.sikuli.script.Screen;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -11,6 +12,7 @@ import net.timeandtraining.framework.UI;
 public class LoginTests extends TestBase {
 	
 
+	
 	
 	@Test(testName="login with invalid id")	
 	public void TC001_login_with_invalid_id() {

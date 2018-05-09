@@ -9,6 +9,20 @@ import net.timeandtraining.framework.UI;
 public class JavaArray extends TestBase{
 	
 	
+	public static void main(String[] args) {
+		
+		String[] s = {"dsds","dsds"};		
+		
+		System.out.println(s.length);
+		
+		
+	}
+	
+	
+	
+	
+	
+	
 	//String[] websites= {"http://www.google.com","http://www.ebay.com","http://www.bbc.com"};
 	
 	@Test(testName="navigating various websites",dataProvider="getURLS")
