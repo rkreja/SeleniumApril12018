@@ -63,6 +63,16 @@ public class UI extends TestBase {
 		return e;
 	}
 	
+	public static WebElement findelementBy(By by) {
+		WebElement e=null;
+		try {
+			e=driver.findElement(by);
+		} catch (Exception e2) {
+			reportFailWithScreenShot("Unable to identify element by by: "+ by);
+		}
+		return e;
+	}
+	
 	public static WebElement findWithWait(By by) {
 	    WebElement found = null;
 	    int attempts = 0;
@@ -115,6 +125,13 @@ public class UI extends TestBase {
 		}
 		return e;
 	}
+	
+	
+	//GET
+	
+	public static String getTextBy(By by) {
+		return findelementBy(by).getText();
+	}
 
 	// ALL THE METHODS HERE FOR CLICKS
 
@@ -126,6 +143,13 @@ public class UI extends TestBase {
 		e.click();
 		reporter.log(Status.PASS, "Clicked on elemenet : " + elementText);
 	}
+	
+	public static void clickByBy(By by) {
+
+		findelementBy(by).click();
+		reporter.log(Status.PASS, "Clicked on elemenet by : " + by);
+	}
+
 	
 	public static void clickById(String id) {
 
@@ -196,6 +220,10 @@ public class UI extends TestBase {
 
 	public static void enterTextByClassName(String ClassName, String text) {
 		findelementByClassName(ClassName).sendKeys(text);
+		reporter.log(Status.PASS, "Successfully entered text: " + text);
+	}
+	public static void enterTextBy(By by, String text ) {
+		findelementBy(by).sendKeys(text);
 		reporter.log(Status.PASS, "Successfully entered text: " + text);
 	}
 

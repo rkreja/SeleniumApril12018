@@ -1,11 +1,12 @@
 package com.automationpractice.login;
 
 import org.openqa.selenium.By;
-import org.sikuli.script.Screen;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import misc.javamethods.Singer;
+import com.automationpractice.com.pages.Authentication;
+import com.automationpractice.com.pages.HomePage;
+
 import net.timeandtraining.framework.TestBase;
 import net.timeandtraining.framework.UI;
 
@@ -14,6 +15,37 @@ public class LoginTests extends TestBase {
 
 	
 	
+	@Test()	
+	public void TC001_login_with_invalid_id_using_page_object_model() {
+		
+		// Go to http://www.automationpractice.com
+		UI.openURL("http://www.automationpractice.com");
+		
+		HomePage homepage;
+		homepage=new HomePage();
+		
+		homepage.clickDressesTab();
+			
+		
+//		String dynamic_id=homepage.getDynamicId();
+//		homepage.search(dynamic_id);
+		homepage.clickSignInButton();
+		
+		Authentication   authentication = new Authentication();
+		
+		
+		authentication.clickDressesTab();
+		authentication.clickTshirtTab();
+		
+		authentication.search("summer");
+		
+		authentication.login("dsdsh@fifde.cxm", "dsdsdsdedwrewerw");
+		
+		
+		System.out.println(authentication.getErrorMsg());
+
+	
+	}
 	@Test(testName="login with invalid id")	
 	public void TC001_login_with_invalid_id() {
 		

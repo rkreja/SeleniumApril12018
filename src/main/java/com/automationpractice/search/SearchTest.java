@@ -17,14 +17,14 @@ public class SearchTest extends TestBase{
 		
 		
 		
-		
-		
 	}
 	
 
 	
 	@Test
 	public void TC002_Prdouct_quick_view() {
+		
+		
 		// Go to http://www.automationpractice.com
 		UI.openURL("http://www.automationpractice.com");
 		// Click on the 'EYE' icon of the product that has text has 'Printed Dress' and price is $26.00

@@ -7,6 +7,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="src" path="src.rkreja"/>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
 		<attributes>
 			<attribute name="module" value="true"/>
@@ -19,11 +25,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
-	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
-		<attributes>
-			<attribute name="optional" value="true"/>
-			<attribute name="maven.pomderived" value="true"/>
-		</attributes>
-	</classpathentry>
+	<classpathentry kind="lib" path="F:/MyEclipseWorkSpace/timentraining/timentraining/target/timentraining-1.0.jar"/>
+	<classpathentry kind="lib" path="C:/sikuli/sikulixapi.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
