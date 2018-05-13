@@ -8,12 +8,58 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.annotations.Test;
 
+import com.automationpractice.com.pages.HomePage;
+import com.automationpractice.com.pages.PageManager;
+import com.rkreja.Util;
+
 import net.timeandtraining.framework.TestBase;
 import net.timeandtraining.framework.UI;
 
 public class SearchTest extends TestBase{
 	
+	
+	@Test
 	public void TC001_Price_Range_Search() {
+		
+//		Go to http://www.automationpractice.com
+		UI.openURL("http://www.automationpractice.com");
+//		Click on DRESSES button
+		HomePage homepage = new HomePage();
+		homepage.clickDressesTab();
+		
+//		slide the price range between $20.00 to $40.00
+		WebElement left_slide_button=UI.findelementByXpath("(//a[parent::div[@id='layered_price_slider']])[1]");				
+		Actions actions = new Actions(driver);
+		actions.dragAndDropBy(left_slide_button, 30, 0).build().perform();		
+		WebElement right_slide_button=UI.findelementByXpath("(//a[parent::div[@id='layered_price_slider']])[2]");		
+		actions.dragAndDropBy(right_slide_button, -70, 0).build().perform();
+		
+//		Verify product listed on right side with price ranges are between $20 to $40 only
+		
+		Util.sleep(2000);
+		
+		
+		List<WebElement> price_holder_elements=driver.findElements(By.xpath("//span[@class='price product-price']"));
+		
+		for(WebElement e:price_holder_elements) {
+			
+			if(e.getText().equals("")) {
+				
+			}else {
+				String price=e.getText().replace("$", "");
+				Double d=Double.parseDouble(price);
+				System.out.println(d);
+				System.out.println(d>20);
+				System.out.println(d<40);
+				
+				UI.report(d>20 && d<40 , true, "Verify price ranges are between 20 to 40. Found: "+ d);
+				
+				
+			}
+			
+			
+		}
+		
 		
 		
 		

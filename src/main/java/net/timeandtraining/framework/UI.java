@@ -2,9 +2,6 @@ package net.timeandtraining.framework;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.Driver;
-import java.util.concurrent.TimeUnit;
-import java.util.function.Function;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -15,13 +12,10 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.aventstack.extentreports.Status;
-import com.rkreja.Util;
 
 public class UI extends TestBase {
 
@@ -106,6 +100,8 @@ public class UI extends TestBase {
 		}
 		return e;
 	}
+
+	
 	public static WebElement findelementByTagName(String tagname) {
 		WebElement e=null;
 		try {
@@ -175,7 +171,6 @@ public class UI extends TestBase {
 	// ALL THE METHODS HERE FOR SEND CLEAR
 	public static void clearByWebElement(WebElement e) {
 		e.clear();
-
 	}
 	public static void clearById(String id) {
 		findelementById(id).clear();
@@ -246,6 +241,17 @@ public class UI extends TestBase {
 		dropdown.selectByValue(value);
 		reporter.log(Status.INFO, value + " selected in dropdown");
 	}
+	
+	// WAIT
+
+		public static void waitWhileElementIsPresent(WebElement e) {
+			//TODO
+			
+		}
+		public static void waitUntilElementGetsVisible(WebElement e) {
+			//TODO			
+		}
+	
 
 	// ALL THE METHODS HERE FOR ACTIONS
 

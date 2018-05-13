@@ -14,7 +14,7 @@ public class AssertDemo {
 		//verify Bangladesh's capital is 'Dhaka'		
 		String capital="Dhaka";
 		Assert.assertEquals(capital, "Dhaka");
-		
+		  
 	}
 	@Test
 	public void verifyInt() {		

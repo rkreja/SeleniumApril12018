@@ -7,6 +7,7 @@ public class SikuliDemo {
 
 	public static void main(String[] args) throws FindFailed {
 		
+	
 		
 			Screen screen = new Screen();
 			
