@@ -86,7 +86,7 @@ public class ProductTests extends TestBase{
 		
 		
 		
-	//Updated test for git by Abdus azad	
+	//Updated test for git by Sajib
 		
 		
 	}
